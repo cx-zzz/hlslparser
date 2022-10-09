@@ -150,12 +150,40 @@ static const char * TranslateSemantic(const char* semantic, bool output, HLSLGen
     }
     return NULL;
 }
-bool HLSLGenerator::Generate(HLSLTree* tree, const char* entryName) {
-    m_tree = tree;
-    m_entryName = entryName;
-    HLSLFunction* function = tree->FindFunction(entryName);
-    return true;
-}
+
+//bool HLSLGenerator::Generate(HLSLTree* tree, const char* entryName) {
+//    m_tree = tree;
+//    m_entryName = entryName;
+//    HLSLFunction* function = tree->FindFunction(entryName);
+//    HLSLArgument* argument = function->argument;
+//     while (argument) {
+//           
+//            if (argument->type.baseType == HLSLBaseType_UserDefined) {
+//                HLSLStruct * s = tree->FindGlobalStruct(argument->type.typeName);
+//
+//                HLSLStructField * field = s->field;
+//                while (field) {
+//                  
+//                    if (field->semantic) {
+//						field->hidden = false;
+//
+//						if (target == Target_PixelShader && !output && String_EqualNoCase(field->semantic, "POSITION")) {
+//							ASSERT(String_EqualNoCase(field->sv_semantic, "SV_Position"));
+//							field->hidden = true;
+//						}
+//
+//                        field->sv_semantic = TranslateSemantic(field->semantic, output, target);
+//                    }
+//
+//                    field = field->nextField;
+//                }
+//            }
+//
+//            argument = argument->nextArgument;
+//        }
+//    return true;
+//}
+
 bool HLSLGenerator::Generate(HLSLTree* tree, Target target, const char* entryName, bool legacy)
 {
     m_tree      = tree;

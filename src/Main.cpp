@@ -131,7 +131,7 @@ int main( int argc, char* argv[] )
 	}
 
 	// Generate output
-	/*if (language == Language_GLSL)
+	if (language == Language_GLSL)
 	{
 		GLSLGenerator generator;
 		if (!generator.Generate( &tree, GLSLGenerator::Target(target), GLSLGenerator::Version_140, entryName ))
@@ -163,9 +163,9 @@ int main( int argc, char* argv[] )
 		}
 
 		std::cout << generator.GetResult();
-	}*/
-	HLSLGenerator generator;
-	generator.Generate(&tree,entryName);
+	}
+	//HLSLGenerator generator;
+	//generator.Generate(&tree,entryName);
 	system("pause");
 	return 0;
 }
