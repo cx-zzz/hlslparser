@@ -83,6 +83,7 @@
     <ClInclude Include="src\HLSLTokenizer.h" />
     <ClInclude Include="src\HLSLTree.h" />
     <ClInclude Include="src\MSLGenerator.h" />
+    <ClInclude Include="GraphNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

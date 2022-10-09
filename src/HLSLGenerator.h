@@ -36,7 +36,7 @@ public:
     };
 
     HLSLGenerator();
-    
+    bool Generate(HLSLTree* tree, const char* entryName);
     bool Generate(HLSLTree* tree, Target target, const char* entryName, bool legacy);
     const char* GetResult() const;
 

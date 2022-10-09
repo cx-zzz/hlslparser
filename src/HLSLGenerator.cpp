@@ -150,7 +150,12 @@ static const char * TranslateSemantic(const char* semantic, bool output, HLSLGen
     }
     return NULL;
 }
-
+bool HLSLGenerator::Generate(HLSLTree* tree, const char* entryName) {
+    m_tree = tree;
+    m_entryName = entryName;
+    HLSLFunction* function = tree->FindFunction(entryName);
+    return true;
+}
 bool HLSLGenerator::Generate(HLSLTree* tree, Target target, const char* entryName, bool legacy)
 {
     m_tree      = tree;

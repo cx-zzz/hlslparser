@@ -55,13 +55,13 @@ int main( int argc, char* argv[] )
 	using namespace M4;
 
 	// Parse arguments
-	const char* fileName = NULL;
-	const char* entryName = NULL;
+	const char* fileName = "myshader.hlsl";
+	const char* entryName = "PixelShaderFunction";
 
 	Target target = Target_FragmentShader;
-	Language language = Language_GLSL;
+	Language language = Language_HLSL;
 
-	for( int argn = 1; argn < argc; ++argn )
+	/*for( int argn = 1; argn < argc; ++argn )
 	{
 		const char* const arg = argv[ argn ];
 
@@ -115,7 +115,7 @@ int main( int argc, char* argv[] )
 		Log_Error( "Missing arguments\n" );
 		PrintUsage();
 		return 1;
-	}
+	}*/
 
 	// Read input file
 	const std::string source = ReadFile( fileName );
@@ -131,7 +131,7 @@ int main( int argc, char* argv[] )
 	}
 
 	// Generate output
-	if (language == Language_GLSL)
+	/*if (language == Language_GLSL)
 	{
 		GLSLGenerator generator;
 		if (!generator.Generate( &tree, GLSLGenerator::Target(target), GLSLGenerator::Version_140, entryName ))
@@ -163,7 +163,9 @@ int main( int argc, char* argv[] )
 		}
 
 		std::cout << generator.GetResult();
-	}
-
+	}*/
+	HLSLGenerator generator;
+	generator.Generate(&tree,entryName);
+	system("pause");
 	return 0;
 }
